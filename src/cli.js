@@ -7,6 +7,6 @@ import readlineSync from 'readline-sync';
  */
 export const askName = (questionText) => {
     const name = readlineSync.question(questionText);
-    console.log(`Hello, ${name}`);
+    console.log(`Hello, ${name}!`);
     return name;
 };
