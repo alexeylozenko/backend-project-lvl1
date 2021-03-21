@@ -29,7 +29,7 @@ export const compareResultWithAnswer = (result, answer) => {
  * @param {number} rangeNumber
  * @return {number}
  */
-const getRandomNumber = (rangeNumber = 20) => Math.floor(Math.random() * rangeNumber);
+export const getRandomNumber = (rangeNumber = 20) => Math.floor(Math.random() * rangeNumber);
 
 const brainEven = (name, countQuestions = 3) => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
