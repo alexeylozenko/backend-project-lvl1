@@ -9,24 +9,24 @@ describe('brain-even', () => {
     expect(isEven(number)).toBe('yes');
 
     number = 0;
-    expect(isEven()).toBe('yes');
+    expect(isEven(number)).toBe('yes');
   });
 
   it('compareResultWithAnswer', () => {
     let number = 14;
     let answer = 'yes';
-    expect(compareResultWithAnswer(number, answer)).toBeTruthy();
+    expect(compareResultWithAnswer(isEven(number), answer)).toBeTruthy();
 
     number = 13;
     answer = 'no';
-    expect(compareResultWithAnswer(number, answer)).toBeTruthy();
+    expect(compareResultWithAnswer(isEven(number), answer)).toBeTruthy();
 
     number = 13;
     answer = 'yes';
-    expect(compareResultWithAnswer(number, 'yes')).toBeFalsy();
+    expect(compareResultWithAnswer(isEven(number), 'yes')).toBeFalsy();
 
     number = 0;
     answer = 'no';
-    expect(compareResultWithAnswer(number, answer)).toBeFalsy();
+    expect(compareResultWithAnswer(isEven(number), answer)).toBeFalsy();
   });
 });
