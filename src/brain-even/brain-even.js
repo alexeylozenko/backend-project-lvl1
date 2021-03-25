@@ -23,19 +23,23 @@ export const compareResultWithAnswer = (result, answer) => {
   }
   return false;
 };
-
 /**
  *
- * @param {number} rangeNumber
- * @return {number}
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
  */
-export const getRandomNumber = (rangeNumber = 20) => Math.floor(Math.random() * rangeNumber);
+export const getRandomNumber = (min = 1, max = 21) => {
+  const minValue = Math.ceil(min);
+  const maxValue = Math.floor(max);
+  return Math.floor(Math.random() * (maxValue - minValue) + minValue);
+};
 
 const brainEven = (name, countQuestions = 3) => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 0; i < countQuestions; i += 1) {
-    const randomNumber = getRandomNumber();
+    const randomNumber = getRandomNumber(1, 21);
 
     console.log(`Question: ${randomNumber}`);
     const answer = askUser('Your answer: ');
