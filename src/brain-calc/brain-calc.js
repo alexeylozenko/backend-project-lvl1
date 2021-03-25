@@ -72,8 +72,8 @@ const brainCalc = (name, countQuestions = 3) => {
   const listOfOperator = [multiplication, additional, substraction];
 
   for (let i = 0; i < countQuestions; i += 1) {
-    const firstNumber = getRandomNumber(20);
-    const secondNumber = getRandomNumber(15);
+    const firstNumber = getRandomNumber(1, 21);
+    const secondNumber = getRandomNumber(1, 15);
     const randomOperator = listOfOperator[getRandomNumber(listOfOperator.length)];
     const expression = toStringExpression(firstNumber, secondNumber, randomOperator);
 
