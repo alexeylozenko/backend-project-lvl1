@@ -85,7 +85,7 @@ const brainCalc = (name, countQuestions = 3) => {
       console.log('Correct');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightResult}'`);
-      console.log(`Let's try again, ${name}`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
     if (i === countQuestions - 1) {
