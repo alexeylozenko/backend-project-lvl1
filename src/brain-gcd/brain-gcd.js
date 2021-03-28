@@ -41,6 +41,7 @@ const brainGcd = (name, countQuestions = 3) => {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. ACorrect answer was '${divider}'.`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
     if (i === countQuestions - 1) {
