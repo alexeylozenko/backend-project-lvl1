@@ -20,7 +20,7 @@ const brainPrime = (name, countQuestion = 3) => {
     if (compareResultWithAnswer(isPrime(randomNumber), answer)) {
       console.log('Correct!');
     } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${isPrime(randomNumber)}".`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isPrime(randomNumber)}'.`);
       console.log(`Let's try again, ${name}!`);
       break;
     }
