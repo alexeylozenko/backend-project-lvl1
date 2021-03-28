@@ -74,7 +74,7 @@ const brainCalc = (name, countQuestions = 3) => {
   for (let i = 0; i < countQuestions; i += 1) {
     const firstNumber = getRandomNumber(1, 21);
     const secondNumber = getRandomNumber(1, 15);
-    const randomOperator = listOfOperator[getRandomNumber(listOfOperator.length)];
+    const randomOperator = listOfOperator[getRandomNumber(0, listOfOperator.length)];
     const expression = toStringExpression(firstNumber, secondNumber, randomOperator);
 
     console.log(`Question: ${expression}`);
