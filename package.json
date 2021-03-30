@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/alexeylozenko/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/alexeylozenko/backend-project-lvl1/actions)",
+  "description": "package with a few games(brain-even, brain-calc brain-gcd, brain-prime, brain-progression)",
   "main": "index.js",
   "type": "module",
   "bin": {
