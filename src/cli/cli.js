@@ -15,6 +15,6 @@ export default askUser;
 export const greetingsGame = (textGreetings = 'Welcome to the Brain Games!') => {
   console.log(textGreetings);
   const name = askUser('May I have your name? ');
-  console.log(`Hello, ${name}`);
+  console.log(`Hello, ${name}!`);
   return name;
 };
