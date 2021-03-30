@@ -1,4 +1,4 @@
-import askUser from '../cli/cli.js';
+import askUser from '../../cli/cli.js';
 
 /**
  *

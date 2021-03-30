@@ -1,6 +1,6 @@
 import { compareResultWithAnswer, getRandomNumber } from '../brain-even/brain-even.js';
 import { isPrime } from '../brain-prime/brain-prime.js';
-import askUser from '../cli/cli.js';
+import askUser from '../../cli/cli.js';
 
 /**
  * @param {number} number

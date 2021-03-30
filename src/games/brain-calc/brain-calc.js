@@ -1,5 +1,5 @@
 import { getRandomNumber } from '../brain-even/brain-even.js';
-import askUser from '../cli/cli.js';
+import askUser from '../../cli/cli.js';
 
 /**
  *
