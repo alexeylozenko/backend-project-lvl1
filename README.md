@@ -1,6 +1,7 @@
 # BRAIN-GAMES:
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/alexeylozenko/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/alexeylozenko/backend-project-lvl1/actions)
+[![eslint](https://github.com/alexeylozenko/backend-project-lvl1/actions/workflows/eslint.yml/badge.svg)](https://github.com/alexeylozenko/backend-project-lvl1/actions/workflows/eslint.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27d2ee47314a595dc5d0/maintainability)](https://codeclimate.com/github/alexeylozenko/backend-project-lvl1/maintainability)
 
 ## Description:
