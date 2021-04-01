@@ -14,7 +14,7 @@ export const isPrime = (number) => {
 const brainPrime = (name, countQuestion = 3) => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < countQuestion; i += 1) {
-    const randomNumber = getRandomNumber();
+    const randomNumber = getRandomNumber(2, 20);
     console.log(`Question: ${randomNumber}`);
     const answer = askUser('Your answer: ');
     if (compareResultWithAnswer(isPrime(randomNumber), answer)) {
