@@ -25,7 +25,7 @@ const brainPrime = (name, countQuestion = 3) => {
       break;
     }
     if (i === countQuestion - 1) {
-      console.log(`Congratulations: ${name}!`);
+      console.log(`Congratulations, ${name}!`);
       break;
     }
   }
