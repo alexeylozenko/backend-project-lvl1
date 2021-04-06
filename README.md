@@ -21,10 +21,6 @@ You can install with [make](https://en.wikipedia.org/wiki/Make_(software)) tool 
 
     make install
 
-or
-
-    npm ci
-
 make games global:
 
     npm link
