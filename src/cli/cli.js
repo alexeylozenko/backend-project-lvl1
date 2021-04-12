@@ -26,9 +26,13 @@ export const runCLI = (gameModule, quantityQuestions = 3) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+  
+  if (!gameModule) {
+    return 0;
+  }
+
   const descriptionGame = gameModule.getDescriptionGame();
   console.log(descriptionGame);
-
   for (let i = 0; i < quantityQuestions; i += 1) {
     const expression = gameModule.generateTask();
     console.log(`Question: ${expression}`);
