@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import brainEven from '../src/games/brain-even/brain-even.js';
-import { greetingsGame } from '../src/cli/cli.js';
+import * as brainEven  from '../src/games/brain-even.js';
+import { runCLI } from '../src/cli/cli.js';
 
-brainEven(greetingsGame());
+runCLI(brainEven);
