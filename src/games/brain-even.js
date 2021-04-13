@@ -7,6 +7,13 @@ import { getRandomNumber } from '../cli/cli.js';
 export const isEven = (number) => (number % 2 === 0);
 
 /**
+ * 
+ * @param {number} number 
+ * @returns {boolean}
+ */
+export const isNumber = (number) => !Number.isNaN(number);
+
+/**
  * @returns {number}
  */
 export const generateTask = () => {
@@ -18,7 +25,12 @@ export const generateTask = () => {
  * @param {string} expression
  * @returns {number}
  */
-export const parseExpression = (expression) => parseFloat(expression);
+export const parseExpression = (expression) => {
+  const parsedNumber = parseFloat(expression);
+  if (isNumber(parsedNumber)) {
+    return parsedNumber;
+  }
+} 
 
 /**
  * @returns {string}
