@@ -7,8 +7,8 @@ import { getRandomNumber } from '../cli/cli.js';
 export const isEven = (number) => (number % 2 === 0);
 
 /**
- * 
- * @param {number} number 
+ *
+ * @param {number} number
  * @returns {boolean}
  */
 export const isNumber = (number) => !Number.isNaN(number);
@@ -30,7 +30,8 @@ export const parseExpression = (expression) => {
   if (isNumber(parsedNumber)) {
     return parsedNumber;
   }
-} 
+  return null;
+};
 
 /**
  * @returns {string}

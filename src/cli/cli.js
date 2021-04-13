@@ -1,11 +1,4 @@
 import readlineSync from 'readline-sync';
-
-/**
- * @param {string} questionText
- * @return {string | boolean}
- */
-export const askUser = (questionText) => readlineSync.question(questionText);
-
 /**
  *
  * @param {number} min
@@ -19,6 +12,13 @@ export const getRandomNumber = (min = 1, max = 21) => {
 };
 
 /**
+ * 
+ * @param {number} number 
+ * @returns {boolean}
+ */
+export const isNumber = (number) => !Number.isNaN(number);
+
+/**
  * @param {object} gameModule
  * @param {number} quantityQuestions
  */
@@ -26,7 +26,7 @@ export const runCLI = (gameModule, quantityQuestions = 3) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  
+
   if (!gameModule) {
     return 0;
   }
