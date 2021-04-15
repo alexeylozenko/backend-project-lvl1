@@ -52,5 +52,5 @@ or global(need to run npm link):
     
 
 #### Examples-games:
-* brain-even: [![asciicast](https://asciinema.org/a/407429.svg)](https://asciinema.org/a/407429)
+[![asciicast](https://asciinema.org/a/407429.svg)](https://asciinema.org/a/407429)
 
