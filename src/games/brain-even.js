@@ -1,17 +1,11 @@
-import { getRandomNumber } from '../cli/cli.js';
+import { isNumber, getRandomNumber } from '../helpers.js';
 
 /**
- * @param {number} number
- * @return {boolean}
- */
-export const isEven = (number) => (number % 2 === 0);
-
-/**
- *
- * @param {number} number
+ * 
+ * @param {number} number 
  * @returns {boolean}
  */
-export const isNumber = (number) => !Number.isNaN(number);
+export const isEven = (number) => (number % 2 === 0); 
 
 /**
  * @returns {number}
@@ -25,13 +19,7 @@ export const generateTask = () => {
  * @param {string} expression
  * @returns {number}
  */
-export const parseExpression = (expression) => {
-  const parsedNumber = parseFloat(expression);
-  if (isNumber(parsedNumber)) {
-    return parsedNumber;
-  }
-  return null;
-};
+export const parseExpression = (expression) =>  parseFloat(expression);
 
 /**
  * @returns {string}

@@ -1,12 +1,10 @@
-import { getRandomNumber } from '../cli/cli.js';
-import { isPrime } from '../games/brain-prime.js';
+import { getRandomNumber } from '../helpers.js';
 
 /**
  * @param {number} number
  * @returns {number}
  */
 export const biggestDivider = (number) => {
-  if (isPrime(number) === 'yes') return number;
   const iterDivider = (numberForDivide, divider) => {
     if (divider === 1) return numberForDivide;
     if (numberForDivide % divider === 0) return divider;
@@ -68,6 +66,12 @@ const parseExpression = (expression) => {
   return [parseFloat(firstNumber), parseFloat(secondNumber)];
 };
 
+/**
+ * 
+ * @param {string} expression 
+ * @param {string} userAnswer 
+ * @returns {string}
+ */
 export const playGame = (expression, userAnswer) => {
   const [firstNumber, secondNumber] = parseExpression(expression);
   const rightAnswer = greatestCommonDivider(firstNumber, secondNumber);

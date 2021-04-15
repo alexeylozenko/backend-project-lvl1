@@ -1,4 +1,4 @@
-import { getRandomNumber } from '../cli/cli.js';
+import { getRandomNumber } from '../helpers.js';
 
 /**
  * @param {number} number
