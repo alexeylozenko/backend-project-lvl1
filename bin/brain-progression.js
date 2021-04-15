@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { greetingsGame } from '../src/cli/cli.js';
-import brainProgression from '../src/games/brain-progression/brain-progression.js';
+import * as gameModule from '../src/games/brain-progression.js';
+import runGame from '../src/index.js';
 
-brainProgression(greetingsGame());
+runGame(gameModule);
