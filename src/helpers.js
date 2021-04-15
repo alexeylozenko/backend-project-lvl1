@@ -1,18 +1,16 @@
 /**
- * 
- * @param {number} number 
+ * @param {number} number
  * @returns {boolean}
  */
- export const isNumber = (number) => !Number.isNaN(number);
+export const isNumber = (number) => !Number.isNaN(number);
 
 /**
- *
  * @param {number} min
  * @param {number} max
  * @returns {number}
  */
- export const getRandomNumber = (min = 1, max = 21) => {
-    const minValue = Math.ceil(min);
-    const maxValue = Math.floor(max);
-    return Math.floor(Math.random() * (maxValue - minValue) + minValue);
+export const getRandomNumber = (min = 1, max = 21) => {
+  const minValue = Math.ceil(min);
+  const maxValue = Math.floor(max);
+  return Math.floor(Math.random() * (maxValue - minValue) + minValue);
 };
