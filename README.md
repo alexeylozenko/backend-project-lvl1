@@ -25,12 +25,12 @@ make games global:
 
     npm link
 
-###Requirements:
+### Requirements:
 * nodejs lts version >= 12 (recommended 14)
 * npm
 * make
 
-###Quick start
+### Quick start
 You have two ways launch the game:
 
 local:
