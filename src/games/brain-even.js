@@ -1,11 +1,11 @@
-import { isNumber, getRandomNumber } from '../helpers.js';
+import { getRandomNumber } from '../helpers.js';
 
 /**
- * 
- * @param {number} number 
+ *
+ * @param {number} number
  * @returns {boolean}
  */
-export const isEven = (number) => (number % 2 === 0); 
+export const isEven = (number) => (number % 2 === 0);
 
 /**
  * @returns {number}
@@ -19,7 +19,7 @@ export const generateTask = () => {
  * @param {string} expression
  * @returns {number}
  */
-export const parseExpression = (expression) =>  parseFloat(expression);
+export const parseExpression = (expression) => parseFloat(expression);
 
 /**
  * @returns {string}

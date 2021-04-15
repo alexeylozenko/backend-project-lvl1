@@ -22,10 +22,11 @@ export const generateProgression = (startNumber, step, rangeProgression = 10) =>
  * @param {array} array
  * @returns {array}
  */
- const hideOneRandomElement = (array) => {
+const hideOneRandomElement = (array) => {
+  const arr = array;
   const index = getRandomNumber(2, array.length - 1);
-  array[index] = '..';
-  return array;
+  arr[index] = '..';
+  return arr;
 };
 
 /**
@@ -52,14 +53,15 @@ export const getDescriptionGame = () => 'What number is missing in the progressi
 const normalizeExpression = (expression) => {
   const convertedExpression = expression.split(' ');
   const iter = (index, array) => {
+    const arr = array;
     if (index === array.length) {
       return array;
     }
     const convertedToNumber = parseFloat(array[index]);
     if (isNumber(convertedToNumber)) {
-      array[index] = convertedToNumber;
+      arr[index] = convertedToNumber;
     }
-    return iter(index += 1, array);
+    return iter(index + 1, array);
   };
   return iter(0, convertedExpression);
 };
@@ -99,9 +101,9 @@ export const findStepProgression = (progression) => {
     if (isNumber(currElement) && isNumber(nextElement)) {
       return nextElement - currElement;
     }
-    return iter(index += 1, array);
-  }
-  return iter (0, progression);
+    return iter(index + 1, array);
+  };
+  return iter(0, progression);
 };
 
 /**
@@ -136,4 +138,3 @@ export const playGame = (expression, answerUser) => {
     ? 'Correct!'
     : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
 };
-

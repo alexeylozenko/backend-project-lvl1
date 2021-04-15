@@ -1,4 +1,4 @@
-import { getRandomNumber, isNumber } from '../helpers.js';
+import { getRandomNumber } from '../helpers.js';
 
 /**
  * @param {number} firstNumber
@@ -26,38 +26,36 @@ export const substraction = (firstNumber, secondNumber) => firstNumber - secondN
  * @param {number} secondNumber
  * @param {number}
  */
-const calculate = (firstNumber, secondNumber, operator) => {
-  return operator(firstNumber, secondNumber);
-};
+const calculate = (firstNumber, secondNumber, operator) => operator(firstNumber, secondNumber);
 
-const operators = [
+const MathOperators = [
   ['*', multiplication],
   ['+', additional],
-  ['-', substraction]
+  ['-', substraction],
 ];
 
 /**
- * 
- * @param {string} operator 
- * @param {array} operators 
+ *
+ * @param {string} operator
+ * @param {array} operators
  * @returns {function}
  */
 const getFunctionByOperator = (operator, operators) => {
-  const iteratorOfOperators = (operator, operators, index) => {
-    if (index === operators.length) {
+  const iteratorOfOperators = (currOperator, allOperators, index) => {
+    if (index === allOperators.length) {
       return null;
     }
-    if(operator === operators[index][0]) {
-      return operators[index][1];
+    if (currOperator === allOperators[index][0]) {
+      return allOperators[index][1];
     }
-    return iteratorOfOperators(operator, operators, index + 1);
-  }
+    return iteratorOfOperators(currOperator, allOperators, index + 1);
+  };
   return iteratorOfOperators(operator, operators, 0);
 };
 
 /**
- * 
- * @param {array} operators 
+ *
+ * @param {array} operators
  * @returns {string}
  */
 const getRandomOperator = (operators) => {
@@ -66,42 +64,61 @@ const getRandomOperator = (operators) => {
 };
 
 /**
- * 
- * @param {string} operator 
- * @param {array} operators 
+ *
+ * @param {string} operator
+ * @param {array} operators
  * @returns {boolean}
  */
 const isOperator = (operator, operators) => {
-  const iteratorOfOperators = (operator, index, operators) => {
-    if (operators.length === index) {
+  const iteratorOfOperators = (currOperator, index, allOperators) => {
+    if (allOperators.length === index) {
       return false;
     }
-    if (operators[index].includes(operator)) {
-      return operator;
+    if (allOperators[index].includes(currOperator)) {
+      return currOperator;
     }
-    return iteratorOfOperators(operator, index += 1, operators);
-  }
+    return iteratorOfOperators(currOperator, index + 1, allOperators);
+  };
   return iteratorOfOperators(operator, 0, operators);
 };
 
 /**
  * @returns {string}
  */
- export const generateTask = () => {
+export const generateTask = () => {
   const firstNumber = getRandomNumber(2, 15);
   const secondNumber = getRandomNumber(2, 10);
-  const operator = getRandomOperator(operators);
+  const operator = getRandomOperator(MathOperators);
   return `${firstNumber} ${operator} ${secondNumber}`;
 };
 
 /**
- * 
+ *
  * @returns {string}
  */
- export const getDescriptionGame = () => 'What is the result of the expression?';
+export const getDescriptionGame = () => 'What is the result of the expression?';
 
 /**
- * @param {string} expression 
+ *
+ * @param {string} expression
+ * @returns {string}
+ */
+const parseOperator = (expression, operators) => {
+  const iterOperands = (expr, index, allOperators) => {
+    if (expr.length === index) {
+      return false;
+    }
+    if (isOperator(expr[index], allOperators)) {
+      return expr[index];
+    }
+    return iterOperands(expr, index + 1, allOperators);
+  };
+  const operands = expression.split('');
+  return iterOperands(operands, 0, operators);
+};
+
+/**
+ * @param {string} expression
  * @returns {array}
  */
 export const parseExpression = (expression, operators) => {
@@ -114,31 +131,11 @@ export const parseExpression = (expression, operators) => {
   return [firstParsedNumber, secondParsedNumber, functionByOperator];
 };
 
-/**
- * 
- * @param {string} expression 
- * @returns {string}
- */
- const parseOperator = (expression, operators) => {
-   const operands = expression.split('');
-
-   const iterOperands = (operands, index, operators) => {
-     if (operands.length === index) {
-       return false;
-     }
-     if (isOperator(operands[index], operators)) {
-       return operands[index];
-     }
-     return iterOperands(operands, index += 1, operators);
-   }
-   return iterOperands(expression, 0, operators);
-};
-
 export const playGame = (expression, userAnswer) => {
-  const [firstNumber, secondNumber, operator] = parseExpression(expression, operators);
+  const [firstNumber, secondNumber, operator] = parseExpression(expression, MathOperators);
   const rightAnswer = calculate(firstNumber, secondNumber, operator);
   const parsedUserAnswer = parseFloat(userAnswer);
-  return (rightAnswer === parsedUserAnswer) ?
-    'Correct!' :
-    `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  return (rightAnswer === parsedUserAnswer)
+    ? 'Correct!'
+    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
 };

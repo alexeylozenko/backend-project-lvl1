@@ -12,22 +12,20 @@ const isPrime = (number) => {
 };
 
 /**
- * 
+ *
  * @returns {number}
  */
 export const generateTask = () => getRandomNumber(2, 30);
 
 /**
- * 
+ *
  * @returns {string}
  */
-export const getDescriptionGame = () => {
-  return 'Answer "yes" if given number is prime. Otherwise answer "no".'
-};
+export const getDescriptionGame = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 /**
- * 
- * @param {string} expression 
+ *
+ * @param {string} expression
  * @param {string} answerUser
  * @returns {string}
  */
@@ -35,7 +33,7 @@ export const playGame = (expression, answerUser) => {
   const parsedExpression = parseFloat(expression);
   const rightAnswer = (isPrime(parsedExpression)) ? 'yes' : 'no';
   const parsedUserAnswer = answerUser.toLowerCase(answerUser);
-  return (rightAnswer === parsedUserAnswer) ?
-    'Correct!' :
-    `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  return (rightAnswer === parsedUserAnswer)
+    ? 'Correct!'
+    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
 };

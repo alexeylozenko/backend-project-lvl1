@@ -14,19 +14,6 @@ export const biggestDivider = (number) => {
 };
 
 /**
- * @param {number} firstNumber
- * @param {number} divider
- * @returns {number}
- */
-const findSecondNumber = (firstNumber, divider) => {
-  const iterNumber = (number, dividerOfNumber) => {
-    if (number % dividerOfNumber === 0) return number;
-    return iterNumber(number + 1, dividerOfNumber);
-  };
-  return iterNumber(firstNumber + 1, divider);
-};
-
-/**
  * @returns {string}
  */
 export const generateTask = () => {
@@ -37,28 +24,24 @@ export const generateTask = () => {
 };
 
 /**
- * 
+ *
  * @returns {string}
  */
-export const getDescriptionGame = () => {
-   return 'Find the greatest common divisor of given numbers.';
-};
+export const getDescriptionGame = () => 'Find the greatest common divisor of given numbers.';
 
 /**
- * 
- * @param {number} firstNumber 
- * @param {number} secondNumber 
+ *
+ * @param {number} firstNumber
+ * @param {number} secondNumber
  * @returns {number}
  */
-const greatestCommonDivider = (firstNumber, secondNumber) => {
-  return (secondNumber % firstNumber === 0) ?
-    firstNumber :
-    biggestDivider(firstNumber);
-};
+const greatestCommonDivider = (firstNumber, secondNumber) => ((secondNumber % firstNumber === 0)
+  ? firstNumber
+  : biggestDivider(firstNumber));
 
 /**
- * 
- * @param {string} expression 
+ *
+ * @param {string} expression
  * @returns {array}
  */
 const parseExpression = (expression) => {
@@ -67,16 +50,16 @@ const parseExpression = (expression) => {
 };
 
 /**
- * 
- * @param {string} expression 
- * @param {string} userAnswer 
+ *
+ * @param {string} expression
+ * @param {string} userAnswer
  * @returns {string}
  */
 export const playGame = (expression, userAnswer) => {
   const [firstNumber, secondNumber] = parseExpression(expression);
   const rightAnswer = greatestCommonDivider(firstNumber, secondNumber);
   const parsedUserAnswer = parseFloat(userAnswer);
-  return (rightAnswer === parsedUserAnswer) ?
-    'Correct!' :
-    `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  return (rightAnswer === parsedUserAnswer)
+    ? 'Correct!'
+    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
 };
