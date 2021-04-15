@@ -52,8 +52,5 @@ or global(need to run npm link):
     
 
 #### Examples-games:
-* brain-even: [![asciicast](https://asciinema.org/a/jO694lcjfKOMCnlUBXlrL3KWk.svg)](https://asciinema.org/a/jO694lcjfKOMCnlUBXlrL3KWk)
-* brain-calc: [![asciicast](https://asciinema.org/a/MOLXDzTVo20YhtOMABE1mQC2X.svg)](https://asciinema.org/a/MOLXDzTVo20YhtOMABE1mQC2X)
-* brain-gcd: [![asciicast](https://asciinema.org/a/4hV9fX5bZjpnRlfcrCcBGR7Gg.svg)](https://asciinema.org/a/4hV9fX5bZjpnRlfcrCcBGR7Gg)
-* brain-progression: [![asciicast](https://asciinema.org/a/TUY0hPB2Cz97wJZFSa3fC1yIS.svg)](https://asciinema.org/a/TUY0hPB2Cz97wJZFSa3fC1yIS)
-* brain-prime: [![asciicast](https://asciinema.org/a/DBb00CKdymCMYAxV5mubD8ork.svg)](https://asciinema.org/a/DBb00CKdymCMYAxV5mubD8ork)
+* brain-even: [![asciicast](https://asciinema.org/a/407429.svg)](https://asciinema.org/a/407429)
+
