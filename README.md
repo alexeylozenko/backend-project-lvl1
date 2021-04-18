@@ -21,12 +21,9 @@ You can install with [make](https://en.wikipedia.org/wiki/Make_(software)) tool 
 
     make install
 
-make games global:
-
-    npm link
 
 ### Requirements:
-* nodejs lts version >= 12 (recommended 14)
+* nodejs lts version >= 14
 * npm
 * make
 
@@ -52,5 +49,8 @@ or global(need to run npm link):
     
 
 #### Examples-games:
-[![asciicast](https://asciinema.org/a/407429.svg)](https://asciinema.org/a/407429)
-
+* brain-even: [![asciicast](https://asciinema.org/a/408172.svg)](https://asciinema.org/a/408172)
+* brain-calc: [![asciicast](https://asciinema.org/a/408173.svg)](https://asciinema.org/a/408173)
+* brain-gcd: [![asciicast](https://asciinema.org/a/408175.svg)](https://asciinema.org/a/408175)
+* brain-prime: [![asciicast](https://asciinema.org/a/408176.svg)](https://asciinema.org/a/408176)
+* brain-progression: [![asciicast](https://asciinema.org/a/408178.svg)](https://asciinema.org/a/408178)
