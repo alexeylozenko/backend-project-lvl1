@@ -96,7 +96,7 @@ export const generateTask = () => {
  *
  * @returns {string}
  */
-export const getDescriptionGame = () => 'What is the result of the expression?';
+export const description = 'What is the result of the expression?';
 
 /**
  *

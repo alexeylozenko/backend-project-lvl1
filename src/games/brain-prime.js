@@ -21,7 +21,7 @@ export const generateTask = () => getRandomNumber(2, 30);
  *
  * @returns {string}
  */
-export const getDescriptionGame = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 /**
  *

@@ -27,7 +27,7 @@ export const generateTask = () => {
  *
  * @returns {string}
  */
-export const getDescriptionGame = () => 'Find the greatest common divisor of given numbers.';
+export const description = 'Find the greatest common divisor of given numbers.';
 
 /**
  *

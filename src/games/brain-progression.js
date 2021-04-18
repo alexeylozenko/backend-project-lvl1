@@ -43,7 +43,7 @@ export const generateTask = () => {
  *
  * @returns {string}
  */
-export const getDescriptionGame = () => 'What number is missing in the progression?';
+export const description = 'What number is missing in the progression?';
 
 /**
  *
