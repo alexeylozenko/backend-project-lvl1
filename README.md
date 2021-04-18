@@ -34,7 +34,7 @@ local:
 
     node bin/brain-calc.js
 
-or global(need to run npm link):
+or global:
 
 
     brain-calc
