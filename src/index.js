@@ -8,7 +8,7 @@ export default (game, roundsCount = 3) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  const descriptionGame = game.getDescriptionGame();
+  const descriptionGame = game.description;
   console.log(descriptionGame);
   for (let i = 0; i < roundsCount; i += 1) {
     const expression = game.generateTask();
