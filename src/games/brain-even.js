@@ -27,7 +27,7 @@ export const parseExpression = (expression) => parseFloat(expression);
 export const description = '"yes" if the number is even, otherwise answer "no".';
 
 /**
- * 
+ *
  * @returns {array}
  */
 export const playGame = () => {

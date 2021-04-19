@@ -20,7 +20,7 @@ export default (game, roundsCount = 3) => {
       console.log(`Let's try again, ${name}!`);
       return;
     }
-    console.log(`Correct!`);
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${name}!`);
 };
