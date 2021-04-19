@@ -129,12 +129,11 @@ export const findMissingNumber = (array, step) => {
  * @param {string} answerUser
  * @returns {string}
  */
-export const playGame = (expression, answerUser) => {
-  const parsedUserAnswer = parseFloat(answerUser);
+export const playGame = () => {
+  const expression = generateTask();
   const parsedExpression = parseExpression(expression, normalizeExpression);
   const step = findStepProgression(parsedExpression);
-  const rightAnswer = findMissingNumber(parsedExpression, step);
-  return (parsedUserAnswer === rightAnswer)
-    ? 'Correct!'
-    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  const missedNumber = findMissingNumber(parsedExpression, step);
+  const rightAnswer = missedNumber.toString();
+  return [expression, rightAnswer];
 };

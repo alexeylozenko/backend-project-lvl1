@@ -26,10 +26,13 @@ export const parseExpression = (expression) => parseFloat(expression);
  */
 export const description = '"yes" if the number is even, otherwise answer "no".';
 
-export const playGame = (expression, userAnswer) => {
+/**
+ * 
+ * @returns {array}
+ */
+export const playGame = () => {
+  const expression = generateTask();
   const parsedExpression = parseExpression(expression);
   const rightAnswer = (isEven(parsedExpression)) ? 'yes' : 'no';
-  return (rightAnswer === userAnswer)
-    ? 'Correct!'
-    : `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  return [expression, rightAnswer];
 };

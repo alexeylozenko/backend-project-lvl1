@@ -29,11 +29,9 @@ export const description = 'Answer "yes" if given number is prime. Otherwise ans
  * @param {string} answerUser
  * @returns {string}
  */
-export const playGame = (expression, answerUser) => {
+export const playGame = () => {
+  const expression = generateTask();
   const parsedExpression = parseFloat(expression);
   const rightAnswer = (isPrime(parsedExpression)) ? 'yes' : 'no';
-  const parsedUserAnswer = answerUser.toLowerCase(answerUser);
-  return (rightAnswer === parsedUserAnswer)
-    ? 'Correct!'
-    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  return [expression, rightAnswer];
 };

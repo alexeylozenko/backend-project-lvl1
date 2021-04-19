@@ -59,7 +59,7 @@ const getFunctionByOperator = (operator, operators) => {
  * @returns {string}
  */
 const getRandomOperator = (operators) => {
-  const randomIndexOfOperators = getRandomNumber(0, operators.length - 1);
+  const randomIndexOfOperators = getRandomNumber(0, operators.length);
   return operators[randomIndexOfOperators][0];
 };
 
@@ -131,11 +131,13 @@ export const parseExpression = (expression, operators) => {
   return [firstParsedNumber, secondParsedNumber, functionByOperator];
 };
 
-export const playGame = (expression, userAnswer) => {
+/**
+ * @returns {array}
+ */
+export const playGame = () => {
+  const expression = generateTask();
   const [firstNumber, secondNumber, operator] = parseExpression(expression, MathOperators);
-  const rightAnswer = calculate(firstNumber, secondNumber, operator);
-  const parsedUserAnswer = parseFloat(userAnswer);
-  return (rightAnswer === parsedUserAnswer)
-    ? 'Correct!'
-    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  const calculatedResult = calculate(firstNumber, secondNumber, operator);
+  const rightAnswer = calculatedResult.toString();
+  return [expression, rightAnswer];
 };

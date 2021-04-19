@@ -51,15 +51,12 @@ const parseExpression = (expression) => {
 
 /**
  *
- * @param {string} expression
- * @param {string} userAnswer
- * @returns {string}
+ * @returns {array}
  */
-export const playGame = (expression, userAnswer) => {
+export const playGame = () => {
+  const expression = generateTask();
   const [firstNumber, secondNumber] = parseExpression(expression);
-  const rightAnswer = greatestCommonDivider(firstNumber, secondNumber);
-  const parsedUserAnswer = parseFloat(userAnswer);
-  return (rightAnswer === parsedUserAnswer)
-    ? 'Correct!'
-    : `'${parsedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  const divider = greatestCommonDivider(firstNumber, secondNumber);
+  const rightAnswer = divider.toString();
+  return [expression, rightAnswer];
 };
