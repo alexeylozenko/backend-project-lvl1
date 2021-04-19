@@ -11,20 +11,16 @@ export default (game, roundsCount = 3) => {
   const descriptionGame = game.description;
   console.log(descriptionGame);
   for (let i = 0; i < roundsCount; i += 1) {
-    const expression = game.generateTask();
+    const [expression, rightAnswer] = game.playGame();
     console.log(`Question: ${expression}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const normalizedAnswer = userAnswer.toLowerCase();
-    const totalResultOfGame = game.playGame(expression, normalizedAnswer);
-    if (totalResultOfGame !== 'Correct!') {
-      console.log(totalResultOfGame);
+    const normalizedUserAnswer = userAnswer.toLowerCase();
+    if (rightAnswer !== normalizedUserAnswer) {
+      console.log(`'${normalizedUserAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
+      return;
     }
-    if (i === roundsCount - 1) {
-      console.log(`Congratulations, ${name}!`);
-      break;
-    }
-    console.log(totalResultOfGame);
+    console.log(`Correct!`);
   }
+  console.log(`Congratulations, ${name}!`);
 };
