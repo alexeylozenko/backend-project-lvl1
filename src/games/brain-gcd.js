@@ -17,7 +17,7 @@ const biggestDivider = (number) => {
  * @returns {string}
  */
 export const generateTask = () => {
-  const firstNumber = getRandomNumber(10, 20);
+  const firstNumber = getRandomNumber(3, 20);
   const divider = biggestDivider(firstNumber);
   const secondNumber = divider * getRandomNumber(3, 5);
   return [firstNumber, secondNumber, divider];
