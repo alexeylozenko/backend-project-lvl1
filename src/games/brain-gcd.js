@@ -4,7 +4,7 @@ import { getRandomNumber } from '../helpers.js';
  * @param {number} number
  * @returns {number}
  */
-export const biggestDivider = (number) => {
+const biggestDivider = (number) => {
   const iterDivider = (numberForDivide, divider) => {
     if (divider === 1) return numberForDivide;
     if (numberForDivide % divider === 0) return divider;
@@ -20,7 +20,7 @@ export const generateTask = () => {
   const firstNumber = getRandomNumber(10, 20);
   const divider = biggestDivider(firstNumber);
   const secondNumber = divider * getRandomNumber(3, 5);
-  return `${firstNumber} ${secondNumber}`;
+  return [firstNumber, secondNumber, divider];
 };
 
 /**
@@ -31,32 +31,11 @@ export const description = 'Find the greatest common divisor of given numbers.';
 
 /**
  *
- * @param {number} firstNumber
- * @param {number} secondNumber
- * @returns {number}
- */
-const greatestCommonDivider = (firstNumber, secondNumber) => ((secondNumber % firstNumber === 0)
-  ? firstNumber
-  : biggestDivider(firstNumber));
-
-/**
- *
- * @param {string} expression
  * @returns {array}
  */
-const parseExpression = (expression) => {
-  const [firstNumber, secondNumber] = expression.split(' ');
-  return [parseFloat(firstNumber), parseFloat(secondNumber)];
-};
-
-/**
- *
- * @returns {array}
- */
-export const playGame = () => {
-  const expression = generateTask();
-  const [firstNumber, secondNumber] = parseExpression(expression);
-  const divider = greatestCommonDivider(firstNumber, secondNumber);
+export const getNewRound = () => {
+  const [firstNumber, secondNumber, divider] = generateTask();
+  const question = `${firstNumber} ${secondNumber}`;
   const rightAnswer = divider.toString();
-  return [expression, rightAnswer];
+  return [question, rightAnswer];
 };

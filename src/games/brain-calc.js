@@ -5,21 +5,21 @@ import { getRandomNumber } from '../helpers.js';
  * @param {number} secondNumber
  * @return {number}
  */
-export const multiplication = (firstNumber, secondNumber) => firstNumber * secondNumber;
+const multiplication = (firstNumber, secondNumber) => firstNumber * secondNumber;
 
 /**
  * @param {number} firstNumber
  * @param {number} secondNumber
  * @return {number}
  */
-export const additional = (firstNumber, secondNumber) => firstNumber + secondNumber;
+const additional = (firstNumber, secondNumber) => firstNumber + secondNumber;
 
 /**
  * @param {number} firstNumber
  * @param {number} secondNumber
  * @return {number}
  */
-export const substraction = (firstNumber, secondNumber) => firstNumber - secondNumber;
+const substraction = (firstNumber, secondNumber) => firstNumber - secondNumber;
 
 /**
  * @param {number} firstNumber
@@ -64,32 +64,13 @@ const getRandomOperator = (operators) => {
 };
 
 /**
- *
- * @param {string} operator
- * @param {array} operators
- * @returns {boolean}
- */
-const isOperator = (operator, operators) => {
-  const iteratorOfOperators = (currOperator, index, allOperators) => {
-    if (allOperators.length === index) {
-      return false;
-    }
-    if (allOperators[index].includes(currOperator)) {
-      return currOperator;
-    }
-    return iteratorOfOperators(currOperator, index + 1, allOperators);
-  };
-  return iteratorOfOperators(operator, 0, operators);
-};
-
-/**
  * @returns {string}
  */
-export const generateTask = () => {
+const generateTask = () => {
   const firstNumber = getRandomNumber(2, 15);
   const secondNumber = getRandomNumber(2, 10);
   const operator = getRandomOperator(MathOperators);
-  return `${firstNumber} ${operator} ${secondNumber}`;
+  return [firstNumber, secondNumber, operator];
 };
 
 /**
@@ -99,45 +80,12 @@ export const generateTask = () => {
 export const description = 'What is the result of the expression?';
 
 /**
- *
- * @param {string} expression
- * @returns {string}
- */
-const parseOperator = (expression, operators) => {
-  const iterOperands = (expr, index, allOperators) => {
-    if (expr.length === index) {
-      return false;
-    }
-    if (isOperator(expr[index], allOperators)) {
-      return expr[index];
-    }
-    return iterOperands(expr, index + 1, allOperators);
-  };
-  const operands = expression.split('');
-  return iterOperands(operands, 0, operators);
-};
-
-/**
- * @param {string} expression
  * @returns {array}
  */
-export const parseExpression = (expression, operators) => {
-  const clearExpression = expression.replace(/ /g, '');
-  const operator = parseOperator(clearExpression, operators);
-  const functionByOperator = getFunctionByOperator(operator, operators);
-  const [firstNumber, secondNumber] = clearExpression.split(operator);
-  const firstParsedNumber = parseFloat(firstNumber);
-  const secondParsedNumber = parseFloat(secondNumber);
-  return [firstParsedNumber, secondParsedNumber, functionByOperator];
-};
-
-/**
- * @returns {array}
- */
-export const playGame = () => {
-  const expression = generateTask();
-  const [firstNumber, secondNumber, operator] = parseExpression(expression, MathOperators);
-  const calculatedResult = calculate(firstNumber, secondNumber, operator);
-  const rightAnswer = calculatedResult.toString();
-  return [expression, rightAnswer];
+export const getNewRound = () => {
+  const [firstNumber, secondNumber, operator] = generateTask();
+  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  const mathFunction = getFunctionByOperator(operator, MathOperators);
+  const rightAnswer = calculate(firstNumber, secondNumber, mathFunction);
+  return [question, rightAnswer.toString()];
 };

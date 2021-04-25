@@ -15,7 +15,7 @@ const isPrime = (number) => {
  *
  * @returns {number}
  */
-export const generateTask = () => getRandomNumber(2, 30);
+const generateTask = () => getRandomNumber(2, 30);
 
 /**
  *
@@ -29,9 +29,8 @@ export const description = 'Answer "yes" if given number is prime. Otherwise ans
  * @param {string} answerUser
  * @returns {string}
  */
-export const playGame = () => {
+export const getNewRound = () => {
   const expression = generateTask();
-  const parsedExpression = parseFloat(expression);
-  const rightAnswer = (isPrime(parsedExpression)) ? 'yes' : 'no';
+  const rightAnswer = (isPrime(expression)) ? 'yes' : 'no';
   return [expression, rightAnswer];
 };
