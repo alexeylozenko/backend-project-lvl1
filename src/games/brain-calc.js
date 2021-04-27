@@ -1,32 +1,32 @@
 import { getRandomNumber } from '../helpers.js';
 
 /**
- * @param {number} firstNumber
- * @param {number} secondNumber
+ * @param {number} leftOperand
+ * @param {number} rightOperand
  * @return {number}
  */
-const multiplication = (firstNumber, secondNumber) => firstNumber * secondNumber;
+const multiplication = (leftOperand, rightOperand) => leftOperand * rightOperand;
 
 /**
- * @param {number} firstNumber
- * @param {number} secondNumber
+ * @param {number} leftOperand
+ * @param {number} rightOperand
  * @return {number}
  */
-const additional = (firstNumber, secondNumber) => firstNumber + secondNumber;
+const additional = (leftOperand, rightOperand) => leftOperand + rightOperand;
 
 /**
- * @param {number} firstNumber
- * @param {number} secondNumber
+ * @param {number} leftOperand
+ * @param {number} rightOperand
  * @return {number}
  */
-const substraction = (firstNumber, secondNumber) => firstNumber - secondNumber;
+const substraction = (leftOperand, rightOperand) => leftOperand - rightOperand;
 
 /**
- * @param {number} firstNumber
- * @param {number} secondNumber
+ * @param {number} leftOperand
+ * @param {number} rightOperand
  * @param {number}
  */
-const calculate = (firstNumber, secondNumber, operator) => operator(firstNumber, secondNumber);
+const calculate = (leftOperand, rightOperand, operator) => operator(leftOperand, rightOperand);
 
 const MathOperators = [
   ['*', multiplication],
@@ -64,16 +64,6 @@ const getRandomOperator = (operators) => {
 };
 
 /**
- * @returns {string}
- */
-const generateTask = () => {
-  const firstNumber = getRandomNumber(2, 15);
-  const secondNumber = getRandomNumber(2, 10);
-  const operator = getRandomOperator(MathOperators);
-  return [firstNumber, secondNumber, operator];
-};
-
-/**
  *
  * @returns {string}
  */
@@ -83,9 +73,11 @@ export const description = 'What is the result of the expression?';
  * @returns {array}
  */
 export const getNewRound = () => {
-  const [firstNumber, secondNumber, operator] = generateTask();
-  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  const leftOperand = getRandomNumber(2, 15);
+  const rightOperand = getRandomNumber(2, 10);
+  const operator = getRandomOperator();
+  const question = `${leftOperand} ${operator} ${rightOperand}`;
   const mathFunction = getFunctionByOperator(operator, MathOperators);
-  const rightAnswer = calculate(firstNumber, secondNumber, mathFunction);
+  const rightAnswer = calculate(leftOperand, rightOperand, mathFunction);
   return [question, rightAnswer.toString()];
 };

@@ -19,30 +19,6 @@ const generateProgression = (startNumber, step, rangeProgression = 10) => {
 
 /**
  *
- * @param {array} array
- * @returns {array}
- */
-const extractProgressionNumber = (array) => {
-  const arr = array;
-  const index = getRandomNumber(2, array.length - 1);
-  const rightAnswer = arr[index];
-  arr[index] = '..';
-  return [rightAnswer, arr];
-};
-
-/**
- * @returns {array}
- */
-const generateTask = () => {
-  const step = getRandomNumber(2, 5);
-  const startNumber = getRandomNumber(2, 10);
-  const progression = generateProgression(startNumber, step);
-  const [rightAnswer, question] = extractProgressionNumber(progression);
-  return [rightAnswer, question.join(' ')];
-};
-
-/**
- *
  * @returns {string}
  */
 export const description = 'What number is missing in the progression?';
@@ -51,6 +27,12 @@ export const description = 'What number is missing in the progression?';
  * @returns {array}
  */
 export const getNewRound = () => {
-  const [rightAnswer, question] = generateTask();
+  const step = getRandomNumber(2, 5);
+  const startValue = getRandomNumber(2, 10);
+  const progression = generateProgression(startValue, step);
+  const index = getRandomNumber(1, progression.length - 1);
+  const rightAnswer = progression[index];
+  progression[index] = '..';
+  const question = progression.join(' ');
   return [question, rightAnswer.toString()];
-};
+ };

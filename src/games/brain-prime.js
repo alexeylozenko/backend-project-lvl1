@@ -1,21 +1,15 @@
 import { getRandomNumber } from '../helpers.js';
 
 /**
- * @param {number} number
+ * @param {number} num
  * @returns {boolean}
  */
-const isPrime = (number) => {
-  for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) return false;
+const isPrime = (num) => {
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) return false;
   }
   return true;
 };
-
-/**
- *
- * @returns {number}
- */
-const generateTask = () => getRandomNumber(2, 30);
 
 /**
  *
@@ -30,7 +24,7 @@ export const description = 'Answer "yes" if given number is prime. Otherwise ans
  * @returns {string}
  */
 export const getNewRound = () => {
-  const expression = generateTask();
-  const rightAnswer = (isPrime(expression)) ? 'yes' : 'no';
-  return [expression, rightAnswer];
+  const question = getRandomNumber(2, 30);
+  const rightAnswer = (isPrime(question)) ? 'yes' : 'no';
+  return [question, rightAnswer];
 };
