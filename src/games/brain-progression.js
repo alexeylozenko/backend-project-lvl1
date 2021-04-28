@@ -35,4 +35,4 @@ export const getNewRound = () => {
   progression[index] = '..';
   const question = progression.join(' ');
   return [question, rightAnswer.toString()];
- };
+};
