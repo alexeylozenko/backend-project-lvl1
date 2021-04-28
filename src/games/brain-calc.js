@@ -75,7 +75,7 @@ export const description = 'What is the result of the expression?';
 export const getNewRound = () => {
   const leftOperand = getRandomNumber(2, 15);
   const rightOperand = getRandomNumber(2, 10);
-  const operator = getRandomOperator();
+  const operator = getRandomOperator(MathOperators);
   const question = `${leftOperand} ${operator} ${rightOperand}`;
   const mathFunction = getFunctionByOperator(operator, MathOperators);
   const rightAnswer = calculate(leftOperand, rightOperand, mathFunction);
