@@ -11,20 +11,13 @@ const isPrime = (num) => {
   return true;
 };
 
-/**
- *
- * @returns {string}
- */
-export const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-/**
- *
- * @param {string} expression
- * @param {string} answerUser
- * @returns {string}
- */
-export const getNewRound = () => {
-  const question = getRandomNumber(2, 30);
-  const rightAnswer = (isPrime(question)) ? 'yes' : 'no';
-  return [question, rightAnswer];
+const game = {
+  description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  getNewRound: () => {
+    const question = getRandomNumber(2, 30);
+    const rightAnswer = (isPrime(question)) ? 'yes' : 'no';
+    return [question, rightAnswer];
+  },
 };
+
+export default game;

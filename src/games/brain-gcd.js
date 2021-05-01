@@ -1,33 +1,27 @@
 import { getRandomNumber } from '../helpers.js';
 
 /**
- * @param {number} num
+ *
+ * @param {number} firstValue
+ * @param {number} secondValue
  * @returns {number}
  */
-const getBiggestDivider = (num) => {
-  const iterDivider = (numberForDivide, divider) => {
-    if (divider === 1) return numberForDivide;
-    if (numberForDivide % divider === 0) return divider;
-    return iterDivider(numberForDivide, divider - 1);
-  };
-  return iterDivider(num, num - 1);
+const getBiggestCommonDivisor = (firstValue, secondValue) => {
+  if (secondValue === 0) {
+    return firstValue;
+  }
+  return getBiggestCommonDivisor(secondValue, firstValue % secondValue);
 };
 
-/**
- *
- * @returns {string}
- */
-export const description = 'Find the greatest common divisor of given numbers.';
-
-/**
- *
- * @returns {array}
- */
-export const getNewRound = () => {
-  const firstValue = getRandomNumber(3, 20);
-  const biggestDivider = getBiggestDivider(firstValue);
-  const secondValue = biggestDivider * getRandomNumber(3, 5);
-  const rightAnswer = (secondValue % firstValue === 0) ? firstValue : biggestDivider;
-  const question = `${firstValue} ${secondValue}`;
-  return [question, rightAnswer.toString()];
+const game = {
+  description: 'Find the greatest common divisor of given numbers.',
+  getNewRound: () => {
+    const firstValue = getRandomNumber(10, 20);
+    const secondValue = getRandomNumber(2, 10);
+    const rightAnswer = getBiggestCommonDivisor(firstValue, secondValue);
+    const question = `${firstValue} ${secondValue}`;
+    return [question, rightAnswer.toString()];
+  },
 };
+
+export default game;
