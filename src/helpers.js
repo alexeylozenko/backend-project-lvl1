@@ -1,10 +1,4 @@
 /**
- * @param {number} number
- * @returns {boolean}
- */
-export const isNumber = (number) => !Number.isNaN(number);
-
-/**
  * @param {number} min
  * @param {number} max
  * @returns {number}
