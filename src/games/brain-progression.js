@@ -1,4 +1,4 @@
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 /**
  * @param {number} initialValue
