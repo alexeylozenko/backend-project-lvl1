@@ -28,7 +28,7 @@ const substraction = (leftOperand, rightOperand) => leftOperand - rightOperand;
  */
 const calculate = (leftOperand, rightOperand, operator) => operator(leftOperand, rightOperand);
 
-const MathOperators = {
+const mathOperators = {
   '*': multiplication,
   '+': additional,
   '-': substraction,
@@ -39,11 +39,11 @@ const game = {
   getNewRound: () => {
     const leftOperand = getRandomNumber(2, 15);
     const rightOperand = getRandomNumber(2, 10);
-    const operators = Object.keys(MathOperators);
+    const operators = Object.keys(mathOperators);
     const index = getRandomNumber(0, operators.length - 1);
     const operator = operators[index];
     const question = `${leftOperand} ${operator} ${rightOperand}`;
-    const rightAnswer = calculate(leftOperand, rightOperand, MathOperators[operator]);
+    const rightAnswer = calculate(leftOperand, rightOperand, mathOperators[operator]);
     return [question, rightAnswer.toString()];
   },
 };

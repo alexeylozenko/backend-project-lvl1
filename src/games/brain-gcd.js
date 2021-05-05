@@ -6,11 +6,11 @@ import getRandomNumber from '../helpers.js';
  * @param {number} secondValue
  * @returns {number}
  */
-const getBiggestCommonDivisor = (firstValue, secondValue) => {
+const getGreatestCommonDivisor = (firstValue, secondValue) => {
   if (secondValue === 0) {
     return firstValue;
   }
-  return getBiggestCommonDivisor(secondValue, firstValue % secondValue);
+  return getGreatestCommonDivisor(secondValue, firstValue % secondValue);
 };
 
 const game = {
@@ -18,7 +18,7 @@ const game = {
   getNewRound: () => {
     const firstValue = getRandomNumber(10, 20);
     const secondValue = getRandomNumber(2, 10);
-    const rightAnswer = getBiggestCommonDivisor(firstValue, secondValue);
+    const rightAnswer = getGreatestCommonDivisor(firstValue, secondValue);
     const question = `${firstValue} ${secondValue}`;
     return [question, rightAnswer.toString()];
   },
