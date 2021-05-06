@@ -13,7 +13,6 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "scripts": {
-    "test": "npx -n --experimental-vm-modules -n --no-warnings jest --colors"
   },
   "repository": {
     "type": "git",
