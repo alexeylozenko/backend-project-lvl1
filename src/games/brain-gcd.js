@@ -15,6 +15,9 @@ const getGreatestCommonDivisor = (firstValue, secondValue) => {
 
 const game = {
   description: 'Find the greatest common divisor of given numbers.',
+  /*
+   *@returns: {array:[question, rightAnswer]}
+   */
   getNewRound: () => {
     const firstValue = getRandomNumber(10, 20);
     const secondValue = getRandomNumber(2, 10);

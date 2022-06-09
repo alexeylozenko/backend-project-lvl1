@@ -19,6 +19,10 @@ const generateProgression = (initialValue, step, length = 10) => {
 
 const game = {
   description: 'What number is missing in the progression?',
+
+  /*
+   *@returns {array} [question, rightAnswer]
+   */
   getNewRound: () => {
     const step = getRandomNumber(2, 5);
     const startValue = getRandomNumber(2, 10);

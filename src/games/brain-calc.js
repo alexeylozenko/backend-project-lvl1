@@ -36,6 +36,9 @@ const mathOperators = {
 
 const game = {
   description: 'What is the result of the expression?',
+  /*
+   *@returns: {array[question, rightAnswer]}
+   */
   getNewRound: () => {
     const leftOperand = getRandomNumber(2, 15);
     const rightOperand = getRandomNumber(2, 10);

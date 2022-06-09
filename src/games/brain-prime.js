@@ -14,6 +14,9 @@ const isPrime = (num) => {
 
 const game = {
   description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  /*
+   *@returns: {array[question, rightAnswer]}
+   */
   getNewRound: () => {
     const question = getRandomNumber(2, 30);
     const rightAnswer = (isPrime(question)) ? 'yes' : 'no';

@@ -9,6 +9,9 @@ const isEven = (number) => (number % 2 === 0);
 
 const game = {
   description: '"yes" if the number is even, otherwise answer "no".',
+  /*
+   *@returns: {array:[question, rightAnswer]}
+  */
   getNewRound: () => {
     const question = getRandomNumber(2, 20);
     const rightAnswer = (isEven(question)) ? 'yes' : 'no';
